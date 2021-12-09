@@ -1,10 +1,13 @@
-# Title (replace with your title)
+# Title REGEX Tutorial
 
-Introductory paragraph (replace this with your text)
+A REGEX is a regular expression that searches for matching values/patterns within a string. The following REGEX is an example that looks for the string to match the general makeup of an email address. 
+
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
+This tutorial will explain the most common REGEX vocabulary using the above email matching REGEX as an example. This particular REGEX can be used to validate that a user inputs a valid email address by searching the string for an unspecified number of characters, then the `@` symbol, followed by a domain.
 
 ## Table of Contents
 
@@ -24,15 +27,44 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ### Anchors
 
+The example REGEX inlcudes the following anchors:
+`^` which marks the beginning of the REGEX
+`$` which marks the end of the REGEX
+
 ### Quantifiers
+
+The example REGEX inlcudes the following quantifiers:
+`+` which is used to match one or more of the preceding token
+`{2,6}` which matches the specified quantity of the previous token, in this case between 2 and 6 characters.  Alternatives would be {2}, which looks for 2 digits exactly, or {2,} which looks for 2 or more characters.
 
 ### OR Operator
 
 ### Character Classes
 
+The example REGEX inlcudes the following quaracter classes:
+`[a-z0-9_\.-]` which matches any charater in the set to the following parameters 
+    -range from "a to "z" and is case sensitive.
+    -range from "0" to "9"
+    -matches a "_" character
+    -`\.` matches a "." character (`\` required b/c a "." has a specific purpose in REGEX)  
+    -matches a "-" character
+`[\da-z\.-]` which matches any charater in the set to the following parameters
+    -`\d` matches any digit
+    -`a-z` matches a range from a-z
+    -`\.` matches "." character
+    -`-` matches "-" character
+
 ### Flags
 
+The example REGEX inlcudes the following flags:
+`g` which stands for global search
+
 ### Grouping and Capturing
+
+The example REGEX inlcudes the following capturing groups:
+`([a-z0-9_\.-]+)` which is the match criteria for the substring that precedes the "@" character in an email address
+`([\da-z\.-]+)` which is the math criteria for the substring that follows the "@" character and precedes the "." character and in a typical email address describes the name of the mail server
+`([a-z\.]{2,6})` which follows the "." character and in a typical email describes the domain.
 
 ### Bracket Expressions
 
